@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Конвертер</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+   
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/clipboard@2.0.0/dist/clipboard.min.js"></script>
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Convertr</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Привет</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead">
+      <div class="container h-100" id="container">
+        <div class="row h-100">
+          <div class="col-lg-6 convert">
+            <div class="header-content mx-auto">
+              <label>Ваш текст:</label>
+              <textarea name="contentcrl" class="form-control" rows="9" id="editor"></textarea>
+              <button class="btn col-md-12 center green" onclick="translit1();">&#8635; с кириллицы на латиницу</button>
+              <button class="btn col-md-12 center blue" onclick="translit2();">&#8634; с латиницы на кириллицу</button>
+            </div>
+          </div>
+          <div class="col-lg-6 convert">
+            <div class="translate-content" id="translate-content">
+              <label>Переведенный текст:</label><br/>
+              <textarea name="contentlat" class="form-control" id="text" rows="9" disabled></textarea>
+              <button class="btn col-md-4 right" data-clipboard-action="cut" data-clipboard-text="#text">
+                  Копировать
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!--section class="download bg-primary text-center" id="download">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h2 class="section-heading">Discover what all the buzz is about!</h2>
+            <p>Our app is available on any mobile device! Download now to get started!</p>
+            <div class="badges">
+              <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
+              <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+    <section class="contact bg-primary" id="contact">
+      <div class="container">
+        <h2>We
+          <i class="fa fa-heart"></i>
+          new friends!</h2>
+        <ul class="list-inline list-social">
+          <li class="list-inline-item social-twitter">
+            <a href="#">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item social-facebook">
+            <a href="#">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item social-google-plus">
+            <a href="#">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section-->
+    <footer>
+      <div class="container">
+        <p>&copy; 2018. Сделано с &#10084; в Алмате.&#9787;</p>
+        <!--ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">Terms</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">FAQ</a>
+          </li>
+        </ul-->
+      </div>
+    </footer>
+     
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/script.js"></script>
+    <!--script src="js/clipboard.min.js"></script-->
+    <script src="js/vue.min.js"></script>
+    
+    <script type="text/javascript">
+      var app = new Vue({
+        el: '#container',
+        data: {
+            text: ''
+        }
+      });
+    </script>
+    <script type="text/javascript">
+      var arrcrl = new Array ('А','а','Ә','ә','Б','б','В','в','Г','г','Ғ','ғ','Д','д','Е','е','Ё','ё','Ж','ж','З','з','И','и','Й','й','К','к','Қ','қ','Л','л','М','м','Н','н','Ң','ң','О','о', 'Ө','ө','П','п','Р','р','С','с','Т','т','У','у','Ұ','ұ','Ү','ү','Ф','ф','Х','х','Һ','һ','Ц','ц','Ч','ч','Ш','ш','Щ','щ','Ъ','ъ','Ы','ы','І','і','Ь','ь','Э','э','Ю','ю','Я','я');
+      var arrlat = new Array ('A','a','Á','á','B','b','V','v','G','g','Ǵ','ǵ','D','d','E','e','E','e','J','j','Z','z','I','ı','I','ı','K','k','Q','q','L','l','M','m','N','n','Ń','ń','O','o', 'Ó','ó','P','p','R','r','S','s','T','t','Ý','ý','U','u','Ú','ú','F','f','H','h','Һ','һ','Ts','ts','Ch','ch','Sh','sh','','','','','Y','y','I','і','','','E','e','Iý','ıý','Ia','ıa');
+      var arrlat2 = new Array ('A','a','Á','á','B','b','V','v','G','g','Ǵ','ǵ','D','d','E','e','E','e','J','j','Z','z','I','ı','I','ı','K','k','Q','q','L','l','M','m','N','n','Ń','ń','O','o', 'Ó','ó','P','p','R','r','S','s','T','t','Ý','ý','U','u','Ú','ú','F','f','H','h','Һ','һ','Ts','ts','Ch','ch','Sh','sh','`','`','`','`','Y','y','I','і','`','`','E','e','Iý','ıý','Ia','ıa');
+      
+      function cyrill_to_latin(text){
+        for(var i=0; i<arrcrl.length; i++){
+          var reg = new RegExp(arrcrl[i], "g");
+          text = text.replace(reg, arrlat[i]);
+          }
+        return text;
+      }
+
+      function latyn_to_cyrill(text){
+        for(var i=0; i<arrlat2.length; i++){
+          var reg = new RegExp(arrlat2[i], "g");
+          text = text.replace(reg, arrcrl[i]);
+          }
+        return text;
+      }
+
+      function translit1(){
+        $("[name=contentlat]").val(cyrill_to_latin($("[name=contentcrl]").val()));
+      }
+      function translit2(){
+        $("[name=contentlat]").val(latyn_to_cyrill($("[name=contentcrl]").val()));
+      }
+    </script>
+  </body>
+
+</html>
